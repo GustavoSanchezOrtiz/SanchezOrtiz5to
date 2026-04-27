@@ -5,7 +5,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 
 function Exam() {
   return (
-    <GoogleOAuthProvider clientId="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">
+    <GoogleOAuthProvider clientId="">
       <div className="Exam">
         <header className="App-header">
           <img src={profile} className="App-logo" alt="logo" />
