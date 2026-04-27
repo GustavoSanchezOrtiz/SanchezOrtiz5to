@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METODOLOGÍAS DE DESARROLLO DE SW - GUSTAVO</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; padding: 20px; color: #333; background-color: #f4f7f6; }
+        .container { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; font-size: 2.2em; }
+        h2 { color: #34495e; margin-top: 30px; }
+        p { line-height: 1.6; color: #555; font-size: 1.1em; }
+
+        /* Grid de Botones */
+        .metodologias-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin: 40px 0; }
+        .btn { padding: 12px 20px; border-radius: 8px; color: white; font-weight: bold; min-width: 160px; cursor: pointer; border: none; transition: transform 0.2s, opacity 0.2s; }
+        .btn:hover { transform: scale(1.05); opacity: 0.9; }
+        
+        /* Colores de botones según tu diseño */
+        .cascada { background-color: #007bff; }
+        .modelo-v { background-color: #6c757d; }
+        .agiles   { background-color: #28a745; }
+        .scrum    { background-color: #dc3545; }
+        .kanban   { background-color: #ffc107; color: black; }
+        .xp       { background-color: #17a2b8; }
+        .hibridas { background-color: #343a40; }
+
+        /* Estilos del Modal (Ventana Flotante) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); }
+        .modal-content { background-color: #fff; margin: 2% auto; border-radius: 12px; width: 85%; max-width: 800px; position: relative; box-shadow: 0 5px 30px rgba(0,0,0,0.5); overflow: hidden; animation: slideIn 0.4s; }
+        @keyframes slideIn { from { transform: translateY(-100px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        
+        .modal-header { padding: 15px 20px; background: #f8f9fa; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .modal-body { padding: 10px; text-align: center; max-height: 70vh; overflow-y: auto; }
+        .modal-footer { padding: 15px; background: #f8f9fa; border-top: 1px solid #eee; text-align: right; }
+        .modal-img { width: 100%; height: auto; border-radius: 4px; }
+        
+        .btn-regresar-modal { background: #6c757d; color: white; border: none; padding: 10px 25px; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        .close-x { font-size: 30px; cursor: pointer; color: #aaa; border: none; background: none; line-height: 1; }
+
+        /* Secciones de enlaces inferiores */
+        .link-section { margin-top: 50px; padding: 20px; border-top: 2px solid #eee; }
+        .btn-outline { border: 2px solid #007bff; color: #007bff; padding: 12px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn-outline:hover { background: #007bff; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>METODOLOGÍAS DE DESARROLLO DE SW</h1>
+        <h2>¿Qué es una metodología de desarrollo de software?</h2>
+        <p>Las metodologías de desarrollo de software son un conjunto de técnicas y métodos organizativos que se aplican para diseñar soluciones de software informático. El objetivo es organizar los equipos de trabajo para desarrollar las funciones de un programa de la mejor manera posible.</p>
+
+        <h2>TIPOS DE METODOLOGÍAS</h2>
+
+        <div class="metodologias-grid">
+            <button class="btn cascada" onclick="openModal('modalCascada')">CASCADA</button>
+            <button class="btn modelo-v" onclick="openModal('modalV')">MODELO V</button>
+            <button class="btn agiles" onclick="openModal('modalAgiles')">ÁGILES</button>
+            <button class="btn scrum" onclick="openModal('modalScrum')">SCRUM</button>
+            <button class="btn kanban" onclick="openModal('modalKanban')">KANBAN</button>
+            <button class="btn xp" onclick="openModal('modalXP')">XP</button>
+            <button class="btn hibridas" onclick="openModal('modalHibridas')">HÍBRIDAS</button>
+        </div>
+
+        <div class="link-section">
+            <h3>LINK A TABLERO DE TRABAJO</h3>
+            <a href="https://kunibo.atlassian.net/jira/software/projects/KUN/boards/1?visitedUserSeg=true" target="_blank" class="btn-outline">---- JIRA ----</a>
+        </div>
+
+        <div class="link-section">
+            <a href="./index.html" class="btn-outline">---- REGRESAR MENÚ PRINCIPAL ----</a>
+        </div>
+
+        <div class="footer-info">
+            <h3 style="color: #e67e22;">"Elige el camino que te haga crecer, no encajar"</h3>
+            <p><strong>Alumno: Gustavo Sanchez Ortiz</strong></p>
+        </div>
+    </div>
+
+    <div id="modalCascada" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Vista de Cascada</h3><button class="close-x" onclick="closeModal('modalCascada')">&times;</button></div>
+            <div class="modal-body"><img src="modeloCascada.png" class="modal-img"></div>
+            <div class="modal-footer"><button class="btn-regresar-modal" onclick="closeModal('modalCascada')">Cerrar</button></div>
+        </div>
+    </div>
+
+    <div id="modalV" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Vista Modelo V</h3><button class="close-x" onclick="closeModal('modalV')">&times;</button></div>
+            <div class="modal-body"><img src="modeloV.png" class="modal-img"></div>
+            <div class="modal-footer"><button class="btn-regresar-modal" onclick="closeModal('modalV')">Cerrar</button></div>
+        </div>
+    </div>
+
+    <div id="modalAgiles" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Metodologías Ágiles</h3><button class="close-x" onclick="closeModal('modalAgiles')">&times;</button></div>
+            <div class="modal-body"><img src="metodologiasAgiles.png" class="modal-img"></div>
+            <div class="modal-footer"><button class="btn-regresar-modal" onclick="closeModal('modalAgiles')">Cerrar</button></div>
+        </div>
+    </div>
+
+    <div id="modalScrum" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Framework Scrum</h3><button class="close-x" onclick="closeModal('modalScrum')">&times;</button></div>
+            <div class="modal-body"><img src="scrum.png" class="modal-img"></div>
+            <div class="modal-footer"><button class="btn-regresar-modal" onclick="closeModal('modalScrum')">Cerrar</button></div>
+        </div>
+    </div>
+
+    <div id="modalKanban" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Metodología Kanban</h3><button class="close-x" onclick="closeModal('modalKanban')">&times;</button></div>
+            <div class="modal-body"><img src="kanban.png" class="modal-img"></div>
+            <div class="modal-footer"><button class="btn-regresar-modal" onclick="closeModal('modalKanban')">Cerrar</button></div>
+        </div>
+    </div>
+
+    <div id="modalXP" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Extreme Programming (XP)</h3><button class="close-x" onclick="closeModal('modalXP')">&times;</button></div>
+            <div class="modal-body"><img src="extremePrograming.png" class="modal-img"></div>
+            <div class="modal-footer"><button class="btn-regresar-modal" onclick="closeModal('modalXP')">Cerrar</button></div>
+        </div>
+    </div>
+
+    <div id="modalHibridas" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Metodologías Híbridas</h3><button class="close-x" onclick="closeModal('modalHibridas')">&times;</button></div>
+            <div class="modal-body"><img src="hibridasModernas.png" class="modal-img"></div>
+            <div class="modal-footer"><button class="btn-regresar-modal" onclick="closeModal('modalHibridas')">Cerrar</button></div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) { document.getElementById(id).style.display = "block"; }
+        function closeModal(id) { document.getElementById(id).style.display = "none"; }
+        window.onclick = function(event) { if (event.target.className === 'modal') { event.target.style.display = "none"; } }
+    </script>
+
+</body>
+</html>
